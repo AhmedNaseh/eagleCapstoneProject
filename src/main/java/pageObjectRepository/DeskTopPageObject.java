@@ -7,15 +7,18 @@ import org.openqa.selenium.support.PageFactory;
 import core.Base;
 import utilites.WebDriverUtility;
 
-public class DeskTopPageObject extends Base {
+public class DeskTopPageObject extends Base{
 	
-
 	public DeskTopPageObject() {
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(xpath = "//*[@id=\"menu\"]/div[2]/ul/li[1]/a")
+	
+	@FindBy(xpath = "//a[text()='Desktops']")
 	private WebElement deskTop;
+	
+	@FindBy(xpath = "//a[contains(text(),'Show All Desktops')]")
+	private WebElement showAll;
 	
 	@FindBy(xpath = "//a[contains(text(),'PC (0)')]")
 	private WebElement pc;
@@ -23,21 +26,24 @@ public class DeskTopPageObject extends Base {
 	@FindBy(xpath = "//a[contains(text(),'Mac (1)')]")
 	private WebElement mac;
 	
-	@FindBy(xpath = "//a[contains(text(),'Show All Desktops')]")
-	private WebElement showAll;
 	
-	public void clickOnDeskTop() {
+	
+	public void clickOnDeskTopTab() {
 		WebDriverUtility.clickOnElement(deskTop);
 	}
+	
+	public void clickOnShowAllDeskTops() {
+		WebDriverUtility.clickOnElement(showAll);
+	}
+	
+	
 	public void clickOnPc() {
 		WebDriverUtility.clickOnElement(pc);	
 	}
 	public void clickOnMac() {
 		WebDriverUtility.clickOnElement(mac);
 	}
-	public void clickOnShowAllDeskTops() {
-		WebDriverUtility.clickOnElement(showAll);
-	}
+
 	
 	
 }
